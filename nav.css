@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+body {
+    background-color: hsl(0, 0%, 99%);
+    font-family: "Nunito Sans", sans-serif;
+    margin: 0; /* Body에 기본 margin 제거 */
+}
+
+body>header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: none;
+    z-index: 1000; /* 다른 요소 위에 올 수 있도록 z-index 추가 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+
+nav {
+    height: 55px;
+    background-color: hsl(0, 0%, 99%);
+}
+
+
+.nav.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    color: black;
+    font-size: 24px;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+    transition: 0.4s ease-in-out;
+}
+
+.nav-logo {
+    color:#000000;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.nav-link {
+    color: #000000;
+    text-decoration: none;
+    font-size: 20px;
+}
+.nav-toggle {
+    display: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* mobile */
+@media screen and (max-width: 600px) {
+    .nav.container {
+        padding: 0 20px;    /* 좌우 여백 줄이기 */
+    }
+    .nav-list {
+        position: absolute;
+        top: calc(55px - 0px);    /* calc(수치 연산자 수치); */
+        right: 0;
+        left: 0;
+        flex-direction: column; /* flex 방향 세로로 */
+        background-color: hsla(0, 0%, 99%, 0.6);
+        z-index: -1;  /* -1만큼 뒤로 보내기*/
+        backdrop-filter: blur(8px);   /* 뒷 배경 뿌옇게 만들기 챌린지 */
+    }
+    .nav-item {
+        padding: 0.5rem 1rem;   /* 위 아래가 0.5, 왼 오른이 1*/
+        border-bottom: 1px solid rgb(225, 225, 225); /* 링크의 밑줄 */
+        text-align: center;
+        width: 100%;    /* 메뉴 아이템 너비를 넓히는 */
+    }
+    /* .nav-list의 초기 상태는 숨겨져 있어야 합니다. */
+    .nav-list {
+        display: none;
+    }
+
+    /* .show-menu 클래스가 적용될 때 네비게이션 리스트가 보이도록 설정합니다. */
+    .nav-list.show-menu {
+        display: flex;
+    }
+    .nav-link {
+        display: block; /* 넓어지니 메뉴 아이템 너비 다 차지하는 */
+    }
+    .nav-toggle {
+        display: block; /* 햄버거 메뉴 보이기 */
+    }
+    .show-menu {
+        top: var(55px);
+    }
+}
