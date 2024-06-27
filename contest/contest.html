@@ -19,7 +19,7 @@
             </a>
             <!--카테고리-->
             <ul class="nav-list container">
-                <li class="nav-item"><a href="../idea.html" class="nav-link">나의 아이디어</a></li>
+                <li class="nav-item"><a href="../idea/idea.html" class="nav-link">나의 아이디어</a></li>
                 <li class="nav-item"><a href="../guide/guide.html" class="nav-link">글 가이드</a></li>
                 <li class="nav-item"><a href="../contest/contest.html" class="nav-link">공모전 자료</a></li>
             </ul>
@@ -161,6 +161,122 @@
             </article>
         </section>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const contestData = [
+                {
+                    "name": "Sta+C",
+                    "imge": "스택.png",
+                    "category": "아이디어/기획",
+                    "hour": "참여중"
+                },
+                {
+                    "name": "2024 제1회 박노수미술관 학술논문 공모",
+                    "imge": "박노수미술솬 학술논문 공모.jpg",
+                    "category": "미술/디자인/건축",
+                    "hour": "최신순"
+                },
+                {
+                    "name": "[병무청]2024 나의 병역이야기 공모전",
+                    "imge": "병역이야기 공모전.png",
+                    "category": "포스터/웹툰/콘텐츠",
+                    "hour": "마감순"
+                },
+                {
+                    "name": "KH영상아카데미+아텐츠게임아카데미",
+                    "imge": "여름방학 특강 오픈!.jpg",
+                    "category": "사진/영상/UCC",
+                    "hour": "최신순"
+                },
+                {
+                    "name": "'오늘한지'창작공모전",
+                    "imge": "오늘한지 창작 공모전.jpg",
+                    "category": "미술/디자인/건축",
+                    "hour": "여유있순"
+                },
+                {
+                    "name": "2024 인디스땅스 모집",
+                    "imge": "인디스땅스.jpg",
+                    "category": "스포츠/음악",
+                    "hour": "마감순"
+                },
+                {
+                    "name": "2024 안동 수페스타 K 경연대회",
+                    "imge": "전국대학가요제.jpg",
+                    "category": "사진/영상/UCC",
+                    "hour": "최신순"
+                },
+                {
+                    "name": "부산광역시 여성폭력방지종합지원센터 2024년 여성폭력예방 콘텐츠 공모전",
+                    "imge": "젠더폭려디지털성범죄.jpg",
+                    "category": "네이밍/슬로건",
+                    "hour": "마감순"
+                },
+                {
+                    "name": "2024미래엔캐릭터공모전",
+                    "imge": "캐릭터 콘셉트 공모전.jpg",
+                    "category": "에세이/수필/문학",
+                    "hour": "여유있순"
+                },
+                {
+                    "name": "해커그라운드 해커톤 2024",
+                    "imge": "해커톤그라운드 해커톤.png",
+                    "category": "IT/학술/논문",
+                    "hour": "여유있순"
+                }
+            ];
+        
+            const contestList = document.getElementById('contest-list');
+        
+            function renderContests(filter = null) {
+                contestList.innerHTML = ''; // Clear the current contests
+        
+                const filteredContests = filter ? contestData.filter(contest => contest.category === filter) : contestData;
+        
+                filteredContests.forEach(contest => {
+                    const contestItem = document.createElement('article');
+                    contestItem.className = 'contest-item';
+        
+                    const img = document.createElement('img');
+                    img.src = `../공모전 자료 img/${contest.imge}`;
+                    img.alt = contest.name;
+        
+                    const detailDiv = document.createElement('div');
+                    detailDiv.className = 'contest-detail';
+        
+                    const nameDiv = document.createElement('div');
+                    nameDiv.className = 'name';
+                    nameDiv.textContent = contest.name;
+        
+                    const time = document.createElement('time');
+                    time.textContent = contest.hour;
+        
+                    const categorySpan = document.createElement('span');
+                    categorySpan.className = 'category';
+                    categorySpan.textContent = contest.category;
+        
+                    detailDiv.appendChild(nameDiv);
+                    detailDiv.appendChild(time);
+                    detailDiv.appendChild(categorySpan);
+        
+                    contestItem.appendChild(img);
+                    contestItem.appendChild(detailDiv);
+        
+                    contestList.appendChild(contestItem);
+                });
+            }
+        
+            document.querySelectorAll('.category-item button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const category = button.textContent;
+                    renderContests(category);
+                });
+            });
+        
+            renderContests(); // Initial render
+        });
+        </script>        
 
     <script src="../nav css, js/js/nav.js"></script>
     <script src="js/main.js"></script>

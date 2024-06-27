@@ -1,44 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
 body {
-    background-color: #f5f5f5;
-    color: #333;
+    font-family: 'Nunito Sans', Arial, sans-serif;
+    background-color: #f3f3f3;
     line-height: 1.6;
-    font-size: 16px;
-}
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
     margin: 0;
     padding: 0;
+}
+
+.contestMain {
+    width: 100%;
+    max-width: 1000px;
+    margin: 100px auto 0 auto;
+    padding: 20px;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    display: block;
 }
 
-/* Main section title */
 .title h1 {
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333;
-}
-
-/* Category buttons */
-.category-conteiner h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+    text-align: left;
+    font-size: 2em;
+    margin-bottom: 40px;
 }
 
 .category-item {
@@ -49,8 +29,8 @@ body {
 }
 
 .category-item button {
-    background-color: #e0e0e0;
-    border: none;
+    background-color: #fefefe;
+    border: 1px solid #ccc;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
@@ -58,97 +38,75 @@ body {
 }
 
 .category-item button:hover {
-    background-color: #d4d4d4;
+    background-color: #007bff;
+    color: #fff;
 }
 
-/* Time filter buttons */
 .hour {
     margin-bottom: 20px;
 }
 
 .hour-item {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
 .hour-item button {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background-color: #ffffff;
+    background-color: #fefefe;
     border: 1px solid #ccc;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .hour-item button:hover {
-    background-color: #f0f0f0;
-    border-color: #bbb;
+    background-color: #007bff;
+    color: #fff;
 }
 
-.hour-item button i {
-    font-size: 18px;
-    color: #333;
-}
-
-.hour-item button span {
-    font-size: 16px;
-    color: #333;
-}
-
-/* Contest list and items */
 .contest-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
 
 .contest-item {
-    background-color: #ffffff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.contest-item:hover {
-    transform: translateY(-10px);
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
 .contest-item img {
     width: 100%;
-    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .contest-detail {
-    padding: 15px;
     text-align: center;
 }
 
 .contest-detail .name {
-    font-size: 18px;
+    font-size: 1.2em;
     font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.contest-detail time,
-.contest-detail span {
-    font-size: 14px;
-    color: #666;
+    margin-bottom: 5px;
 }
 
 .contest-detail time {
     display: block;
+    font-style: italic;
     margin-bottom: 5px;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .category-item, .hour-item {
-        justify-content: center;
-    }
+.contest-detail .category {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-top: 5px;
 }
-
