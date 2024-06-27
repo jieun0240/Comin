@@ -98,6 +98,6 @@ li {
         display: block; /* 햄버거 메뉴 보이기 */
     }
     .show-menu {
-        top: var(55px);
+        top: 55px;
     }
 }
