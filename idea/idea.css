@@ -65,6 +65,7 @@ h1 {
     font-size: 24px;
     cursor: pointer;
 }
+
 textarea {
     font-family: Arial;
     width: 100%;
@@ -78,8 +79,41 @@ textarea {
     outline: none; /* 기본 아웃라인 제거 */
 }
 
+/* Media Queries */
+@media (max-width: 1200px) {
+    .idea-box {
+        width: 45%;
+    }
+}
+
+@media (max-width: 992px) {
+    .idea-box {
+        width: 45%;
+    }
+}
+
 @media (max-width: 768px) {
     .idea-box {
         width: calc(100% - 40px);
+    }
+}
+
+@media (max-width: 576px) {
+    .idea-box {
+        width: calc(100% - 30px);
+        margin-top: 70px;
+    }
+}
+
+/* Landscape orientations */
+@media (orientation: landscape) and (max-width: 768px) {
+    .idea-box {
+        width: calc(50% - 40px);
+    }
+}
+
+@media (orientation: landscape) and (max-width: 576px) {
+    .idea-box {
+        width: calc(50% - 20px);
     }
 }
