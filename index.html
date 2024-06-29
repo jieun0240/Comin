@@ -29,33 +29,30 @@
         </nav>
     </header>
     <main>
-        <div class="idea-container">
-            <div class="idea-box">
-                <h2>Stack 생활</h2>
-                <textarea placeholder="아이디어 제목&#10;아이디어 관련 내용...등등등"></textarea>
-                <span>2024.05.13 23:59까지 제출</span>
-            </div>
-            <div class="idea-box">
-                <h2>Stack 엔터</h2>
-                <textarea placeholder="아이디어 제목&#10;아이디어 관련 내용...등등등"></textarea>
-            </div>
-            <div class="idea-box">
-                <h2>창의 아이디어</h2>
-                <textarea placeholder="아이디어 제목&#10;아이디어 관련 내용...등등등"></textarea>
-            </div>
-            <div class="idea-box">
-                <h2>창업 관련</h2>
-                <textarea placeholder="아이디어 제목&#10;아이디어 관련 내용...등등등"></textarea>
-            </div>
-            <div class="idea-box">
-                <h2>국어 글쓰기</h2>
-                <textarea placeholder="아이디어 제목&#10;아이디어 관련 내용...등등등"></textarea>
-            </div>
+        <h1 class="main-title">나의 아이디어</h1>
+        <div class="idea-container" id="idea-container">
         </div>
         <div class="add-button">
             <button onclick="location.href='idea/idea3.html'">+</button>
         </div>
     </main>
     <script src="./nav css, js/js/nav.js"></script>
+    <script>
+        // 로컬 저장소에서 아이디어를 불러와서 표시
+        document.addEventListener("DOMContentLoaded", function() {
+            const ideaContainer = document.getElementById('idea-container');
+            const ideas = JSON.parse(localStorage.getItem('ideas')) || [];
+
+            ideas.forEach(idea => {
+                const ideaBox = document.createElement('div');
+                ideaBox.className = 'idea-box';
+                ideaBox.innerHTML = `
+                    <h2>${idea.category}</h2>
+                    <textarea readonly>${idea.text}</textarea>
+                `;
+                ideaContainer.appendChild(ideaBox);
+            });
+        });
+    </script>
 </body>
 </html>

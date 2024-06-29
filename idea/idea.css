@@ -19,7 +19,7 @@ h1 {
 
 .idea-box {
     background-color: #fff;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     border-radius: 5px;
     padding: 20px;
     margin: 10px;
@@ -66,6 +66,15 @@ h1 {
     cursor: pointer;
 }
 
+.main-title {
+    text-align: left;
+    font-size: 28px;
+    /* margin-top: 20px; */
+    color: #333;
+    margin: 100px auto 0 auto;
+    padding-left: 360px;
+}
+
 textarea {
     font-family: Arial;
     width: 100%;
@@ -84,17 +93,26 @@ textarea {
     .idea-box {
         width: 45%;
     }
+    .main-title {
+        padding-left: 180px; /* Adjust padding for medium screens */
+    }
 }
 
 @media (max-width: 992px) {
     .idea-box {
         width: 45%;
     }
+    .main-title {
+        padding-left: 120px; /* Adjust padding for smaller screens */
+    }
 }
 
 @media (max-width: 768px) {
     .idea-box {
         width: calc(100% - 40px);
+    }
+    .main-title {
+        padding-left: 40px; /* Adjust padding for tablets */
     }
 }
 
@@ -103,6 +121,9 @@ textarea {
         width: calc(100% - 30px);
         margin-top: 70px;
     }
+    .main-title {
+        padding-left: 20px; /* Adjust padding for small devices */
+    }
 }
 
 /* Landscape orientations */
@@ -110,10 +131,16 @@ textarea {
     .idea-box {
         width: calc(50% - 40px);
     }
+    .main-title {
+        padding-left: 20px; /* Adjust padding for landscape orientation */
+    }
 }
 
 @media (orientation: landscape) and (max-width: 576px) {
     .idea-box {
         width: calc(50% - 20px);
+    }
+    .main-title {
+        padding-left: 20px; /* Adjust padding for smaller landscape screens */
     }
 }

@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../guide/css/reset.css">
     <link rel="stylesheet" href="../nav css, js/css/nav.css">
     <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
     <header>
@@ -19,7 +18,7 @@
             </a>
             <!--카테고리-->
             <ul class="nav-list container">
-                <li class="nav-item"><a href="./idea.html" class="nav-link">나의 아이디어</a></li>
+                <li class="nav-item"><a href="../idea/idea.html" class="nav-link">나의 아이디어</a></li>
                 <li class="nav-item"><a href="../guide/guide.html" class="nav-link">글 가이드</a></li>
                 <li class="nav-item"><a href="../contest/contest.html" class="nav-link">공모전 자료</a></li>
             </ul>
@@ -32,22 +31,37 @@
     <main>
         <section class="idea-section">
             <h1>나의 아이디어</h1>
-            <form>
+            <form id="idea-form">
                 <div class="form-group">
                     <label for="category">카테고리 작성</label>
-                    <input type="text" id="category" name="category" placeholder="카테고리 작성">
+                    <input type="text" id="category" name="category" placeholder="카테고리 작성" required>
                 </div>
                 <div class="form-group">
                     <label for="idea">나의 첫 아이디어 작성하기</label>
-                    <textarea id="idea" name="idea" rows="10" placeholder="나의 첫 아이디어 작성하기"></textarea>
+                    <textarea id="idea" name="idea" rows="10" placeholder="나의 첫 아이디어 작성하기" required></textarea>
                 </div>
                 <div class="form-actions">
-                    <button type="button" id="upload" class="upload-btn" onclick="location.href='../index.html'"><img src="./cloud-upload-fill.svg" alt="Upload"></button>
+                    <button type="submit" class="upload-btn"><img src="./cloud-upload-fill.svg" alt="Upload"></button>
                 </div>
             </form>
         </section>
-        
     </main>
     <script src="../nav css, js/js/nav.js"></script>
+    <script>
+        // 폼 제출 처리
+        document.getElementById('idea-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const category = document.getElementById('category').value;
+            const text = document.getElementById('idea').value;
+
+            const ideas = JSON.parse(localStorage.getItem('ideas')) || [];
+            ideas.push({ category, text });
+            localStorage.setItem('ideas', JSON.stringify(ideas));
+
+            // 메인 아이디어 페이지로 리디렉션
+            location.href = '../index.html';
+        });
+    </script>
 </body>
 </html>
